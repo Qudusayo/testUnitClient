@@ -1,6 +1,4 @@
 import React from "react";
-import Skeleton from "react-loading-skeleton";
-import { withRouter } from "react-router-dom";
 
 import styles from "./style.module.scss";
 
@@ -17,9 +15,7 @@ function index(props) {
                 style={{
                     backgroundImage: `url('${props.gender}')`,
                     backgroundColor:
-                        props.sex === "Male"
-                            ? "#FFFFFF"
-                            : "rgb(175,175,175)",
+                        props.sex === "Male" ? "#FFFFFF" : "rgb(175,175,175)",
                 }}
             >
                 {props.gender ? null : <Skeleton />}
@@ -43,4 +39,4 @@ function index(props) {
     );
 }
 
-export default withRouter(index);
+export default index;
