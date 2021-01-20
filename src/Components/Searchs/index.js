@@ -17,7 +17,7 @@ function index(props) {
             ].join(" ")}
         >
             <input
-                placeholder="Search for patient"
+                placeholder="Search for user"
                 onChange={searchUserHandler}
             />
             <select onChange={usersFilterHandler}>
