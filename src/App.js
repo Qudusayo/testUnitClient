@@ -1,9 +1,9 @@
 import React from "react";
 
-import Countries from "./Components/Countries/index";
+import Records from "./Components/Records/index";
 
 function App() {
-    return <Countries />;
+    return <Records />;
 }
 
 export default App;

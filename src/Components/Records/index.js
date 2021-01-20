@@ -1,9 +1,10 @@
 import React, { Component } from "react";
+import Swal from 'sweetalert2'
 import Card from "../Card";
 import Searchs from "../Searchs";
 import Spinner from "../Spinner";
 import Info from "../Info";
-import Pagination from "./../Pagination";
+import Pagination from "../Pagination";
 
 import Male from "./../../assets/images/male.svg";
 import Female from "./../../assets/images/female.svg";
@@ -29,6 +30,28 @@ class Index extends Component {
     }
 
     componentDidMount() {
+        let timerInterval;
+        Swal.fire({
+            text: "Click on any user to show more about the user",
+            timer: 3000,
+            timerProgressBar: true,
+            showConfirmButton: false,
+            background: 'white',
+            didOpen: () => {
+                timerInterval = setInterval(() => {
+                    const content = Swal.getContent();
+                    if (content) {
+                        const b = content.querySelector("b");
+                        if (b) {
+                            b.textContent = Swal.getTimerLeft();
+                        }
+                    }
+                }, 100);
+            },
+            willClose: () => {
+                clearInterval(timerInterval);
+            },
+        })
         fetch(process.env.REACT_APP_API_URI)
             .then((res) => res.json())
             .then((result) => {
