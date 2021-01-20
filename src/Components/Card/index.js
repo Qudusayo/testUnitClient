@@ -18,21 +18,24 @@ function index(props) {
                         props.sex === "Male" ? "#FFFFFF" : "rgb(175,175,175)",
                 }}
             >
-                {props.gender ? null : <Skeleton />}
             </div>
             <div className={styles.content}>
-                <h3>{props.name ? props.name : <Skeleton />}</h3>
+                <h3>{props.name ? props.name : null}</h3>
+                <p>
+                    <span className={styles.bold}>Sex: </span>
+                    {props.username ? props.sex : null}
+                </p>
                 <p>
                     <span className={styles.bold}>Username: </span>
-                    {props.username ? props.username : <Skeleton />}
+                    {props.username ? props.username : null}
                 </p>
                 <p>
                     <span className={styles.bold}>Phone No.: </span>
-                    {props.phoneNumber ? props.phoneNumber : <Skeleton />}
+                    {props.phoneNumber ? props.phoneNumber : null}
                 </p>
                 <p>
                     <span className={styles.bold}>Payment Type: </span>
-                    {props.paymentMethod ? props.paymentMethod : <Skeleton />}
+                    {props.paymentMethod ? props.paymentMethod : null}
                 </p>
             </div>
         </div>
